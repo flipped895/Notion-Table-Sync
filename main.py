@@ -85,11 +85,15 @@ def main():
     for budget_item in budget_items:
         budget_categories.append(budget_item['properties']['Category']['select']['name'])
         budget_id = budget_item['id']
-        logging.info(f'Updating category {budget_categories[-1]} in budget database with amount {total_by_category[budget_categories[-1]]}')
+        logging.info(
+            f'Updating category {budget_categories[-1]} in budget database with amount {total_by_category[budget_categories[-1]]}')
         update_page_property(budget_id, 'Total_by_Category', total_by_category[budget_categories[-1]])
     if set(budget_categories) != set(total_by_category.keys()):
-        logging.info(f'budget_categories not in accounting database categories is {set(budget_categories) - set(total_by_category.keys())}')
+        logging.info(
+            f'budget_categories not in accounting database categories is {set(budget_categories) - set(total_by_category.keys())}')
         logging.info(
             f'accounting database categories not in budget_categories are {set(budget_categories) - set(total_by_category.keys())}')
+
+
 if __name__ == '__main__':
     main()
