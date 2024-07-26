@@ -13,7 +13,7 @@ NOTION_API_TOKEN = config['DEFAULT']['NOTION_API_TOKEN']
 
 # replace with your database ID in config.ini
 ACCOUNTING_DB_ID = config['DEFAULT']['ACCOUNTING_DB_ID']
-BUDGET_DB_ID = config['DEFAULT']['BUDGET_DB_ID']  # https://www.notion.so/ff1b5c681b9b4df8b4796224878a9793?=v
+BUDGET_DB_ID = config['DEFAULT']['BUDGET_DB_ID']
 
 # Notion API 基础URL
 NOTION_API_URL = 'https://api.notion.com/v1'
