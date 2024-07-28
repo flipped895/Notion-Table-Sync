@@ -1,3 +1,5 @@
-config.ini
+config/config.ini
+config/syncnotion-430612-37757a29dd68.json
+*/__pycache__/
 .idea
 venv
