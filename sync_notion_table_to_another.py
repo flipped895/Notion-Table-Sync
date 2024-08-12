@@ -21,7 +21,7 @@ def main():
 
     # get account_items, figure out total amount by category and store results to total_by_category dict
     for account_item in accounting_items:
-        account_category = account_item['properties']['Category']['select']['name']
+        account_category = account_item['properties']['Category']['select'].get('name', 'Unknown')  # This will safely return 'Unknown' if any of the keys are missing or if the value is None.
         transaction = account_item['properties']['transaction']['formula']['number']
         if account_category not in total_by_category.keys():
             total_by_category[account_category] = 0

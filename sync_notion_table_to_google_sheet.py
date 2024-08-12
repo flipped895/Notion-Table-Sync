@@ -18,7 +18,7 @@ def main():
         update_data.append([item['properties']['Category']['select']['name'],
                             item['properties']['budget']['number'],
                             item['properties']['Total_by_Category']['number']])
-    worksheet.update(f'A2:C10', update_data)
+    worksheet.update(range_name=f'A2:C10', values=update_data)
 
 
 if __name__ == '__main__':
