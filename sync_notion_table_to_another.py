@@ -1,6 +1,7 @@
 import configparser
 import logging
 import notion.notion_database as notion_database
+from datetime import datetime
 from config import const as notion_const
 
 
@@ -24,7 +25,15 @@ def main():
         transaction = account_item['properties']['transaction']['formula']['number']
         if account_category not in total_by_category.keys():
             total_by_category[account_category] = 0
-        total_by_category[account_category] += transaction
+
+        # filter current month transaction
+        current_month = datetime.now().month
+        # print(account_item['properties']['Date']['date']['start'])
+        # the fromisoformat method will correctly parse the entire date and time, including the time zone offset,
+        # into a datetime object. This avoids the ValueError you encountered with strptime.
+        date_object = datetime.fromisoformat(account_item['properties']['Date']['date']['start'])
+        if date_object.month == current_month:
+            total_by_category[account_category] += transaction
 
     # store total_by_category to budget database
     budget_categories = list()
